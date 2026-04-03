@@ -2,14 +2,14 @@
 #define ledAmarelo 2
 #define ledVerde 4
 
-
-
+#define buzzer 5
 
 void config()
 {
   pinMode(ledVermelho, OUTPUT);
   pinMode(ledAmarelo, OUTPUT);
   pinMode(ledVerde, OUTPUT);
+  pinMode(buzzer, OUTPUT);
 }
 
 void vermelho()
@@ -17,15 +17,26 @@ void vermelho()
   digitalWrite(ledVermelho, HIGH);
   digitalWrite(ledAmarelo, LOW);
   digitalWrite(ledVerde, LOW);
-  delay(4000);
-}
+
+  tone(buzzer, 600); 
+  delay(800);        
+  noTone(buzzer);
+
+  delay(1600);
+}  
 
 void amarelo()
 {
   digitalWrite(ledVermelho, LOW);
   digitalWrite(ledAmarelo, HIGH);
   digitalWrite(ledVerde, LOW);  
-  delay(2000);
+  
+  tone(buzzer, 800);   
+  delay(800);        
+  noTone(buzzer);
+
+  delay(1200); 
+
 }
 
 void verde()
@@ -33,9 +44,13 @@ void verde()
   digitalWrite(ledVermelho, LOW);
   digitalWrite(ledAmarelo, LOW);
   digitalWrite(ledVerde, HIGH);  
-  delay(4000);  
-}
 
+  tone(buzzer, 2000);
+  delay(1200);        
+  noTone(buzzer);
+
+  delay(1400); 
+}
 
 void setup()
 {
@@ -44,7 +59,9 @@ void setup()
 
 void loop()
 {
-  verde();
-  amarelo();
   vermelho();
+  amarelo();
+  verde();
+
+  delay(2000);
 }
