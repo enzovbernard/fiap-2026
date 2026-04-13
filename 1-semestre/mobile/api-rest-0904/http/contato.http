@@ -1,0 +1,43 @@
+#criando e enviando para o servidor
+POST https://tdspi-626fa-default-rtdb.firebaseio.com/contato.json HTTP/1.1
+Content-Type: application/json
+
+{   
+    "id": 1,
+    "nome": "Joao Silva",
+    "email": "joao@teste.com",
+    "telefone": "(11) 1111-1111"
+}
+
+###
+
+#pegando o dado criado
+GET https://tdspi-626fa-default-rtdb.firebaseio.com/contato.json HTTP/1.1
+
+###
+
+#editando o dado criado
+PATCH https://tdspi-626fa-default-rtdb.firebaseio.com/contato/-OpmWnVRmYP2Yl_EAQct.json HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "joao@hotmail.com"
+}
+
+###
+
+#sobscrevendo o dado criado
+PUT https://tdspi-626fa-default-rtdb.firebaseio.com/contato/-OpmWnVRmYP2Yl_EAQct.json HTTP/1.1
+Content-Type: application/json
+
+{   
+    "id": 2,
+    "nome": "Maria Silva",
+    "email": "maria@teste.com",
+    "telefone": "(11) 2222-2222"
+}
+
+###
+
+#deletando arquivo
+DELETE https://tdspi-626fa-default-rtdb.firebaseio.com/contato/-OpmWnVRmYP2Yl_EAQct.json HTTP/1.1
